@@ -6,53 +6,98 @@
   <title>Chatbot Kelurahan Bukit Sua</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #eef2f3;
       margin: 0;
       padding: 0;
     }
+
     .chatbot {
       max-width: 480px;
-      margin: 20px auto;
+      margin: 30px auto;
       background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       overflow: hidden;
     }
+
     .chat-header {
       background: #2a7f62;
       color: white;
-      padding: 16px;
+      padding: 20px;
       text-align: center;
-      font-size: 18px;
-      font-weight: bold;
+      position: relative;
     }
+
+    .chat-header img.logo {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .chat-header h1 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .lurah-profile {
+      text-align: center;
+      padding: 16px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .lurah-profile img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .lurah-profile h2 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .lurah-profile p {
+      margin: 0;
+      color: #555;
+      font-size: 14px;
+    }
+
     .chat-body {
       height: 400px;
       overflow-y: auto;
       padding: 16px;
       background: #fafafa;
     }
+
     .message {
       margin: 10px 0;
     }
+
     .bot {
       color: #000;
     }
+
     .user {
       text-align: right;
       color: #2a7f62;
     }
+
     .chat-footer {
       display: flex;
       border-top: 1px solid #ccc;
     }
+
     .chat-footer input {
       flex: 1;
       padding: 12px;
       border: none;
       font-size: 16px;
+      border-radius: 0;
     }
+
     .chat-footer button {
       background: #2a7f62;
       color: white;
@@ -61,29 +106,34 @@
       font-size: 16px;
       cursor: pointer;
     }
-    .wa-link {
-      text-align: center;
-      padding: 12px;
-    }
-    .wa-link a {
-      background: #25D366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
+
+    a {
+      color: #2a7f62;
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
 <div class="chatbot">
-  <div class="chat-header">🤖 Chat Informasi Kelurahan Bukit Sua</div>
-  <div class="chat-body" id="chatBody">
-    <div class="message bot">👋 Halo! Saya Asisten Kelurahan Bukit Sua. Ketik pertanyaan seperti:<br>
-    - Nama Lurah<br>- Jumlah RT<br>- Jumlah RW<br>- Alamat Kelurahan<br>- Jam Pelayanan<br>- Nomor Kontak Whatsapp Lurah/Petugas<br>- Jumlah Penduduk<br>- Syarat Pelayanan<br>- Alamat Website Kelurahan Bukit Sua<br></div>
+  <div class="chat-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Coat_of_arms_of_Palangkaraya.svg/1200px-Coat_of_arms_of_Palangkaraya.svg.png" alt="Logo" class="logo">
+    <h1>🤖 Chat Informasi Kelurahan Bukit Sua</h1>
   </div>
+
+  <div class="lurah-profile">
+    <img src="https://i.ibb.co/TMwmWh4h/Whats-App-Image-2025-05-16-at-15-09-41-removebg-preview-1.png" alt="Foto Lurah">
+    <h2>Ibu Noviani, S.P.</h2>
+    <p>Lurah Bukit Sua</p>
+  </div>
+
+  <div class="chat-body" id="chatBody">
+    <div class="message bot">
+      👋 Halo! Saya Asisten Kelurahan Bukit Sua. Ketik pertanyaan seperti:<br>
+      - Nama Lurah<br>- Jumlah RT<br>- Jumlah RW<br>- Alamat Kelurahan<br>- Jam Pelayanan<br>- Kontak Whatsapp<br>- Jumlah Penduduk<br>- Website Kelurahan<br>- Aduan atau Keluhan Warga
+    </div>
+  </div>
+
   <div class="chat-footer">
     <input type="text" id="userInput" placeholder="Tulis pertanyaan...">
     <button onclick="chat()">Kirim</button>
@@ -109,11 +159,13 @@
     } else if (lower.includes('jumlah rt')) {
       reply = '🏘️ Kelurahan Bukit Sua memiliki 2 RT.';
     } else if (lower.includes('alamat') || lower.includes('jalan')) {
-      reply = '📍 Jl. Jalan Timpung RT.001 RW.001 Bukit Sua Kode Pos 73229, Palangka Raya, Kalimantan Tengah.';
+      reply = '📍 Jl. Jalan Timpung RT.001 RW.001 Bukit Sua, Kode Pos 73229, Palangka Raya, Kalimantan Tengah.';
     } else if (lower.includes('jam') || lower.includes('pelayanan')) {
       reply = '🕐 Pelayanan buka Senin–Jumat, pukul 08.00–15.00 WIB.';
     } else if (lower.includes('kontak')) {
       reply = '📞 Kontak: 0822-5496-3703 (Admin Kelurahan)';
+    } else if (lower.includes('website')) {
+      reply = '🌐 Website Resmi Kelurahan: <a href="https://kel-sabaru.palangkaraya.go.id/" target="_blank">Klik di sini</a>';
     } else if (
       lower.includes('laki-laki') || 
       lower.includes('laki laki') || 
@@ -123,9 +175,7 @@
     } else if (lower.includes('perempuan')) {
       reply = '👪 Jumlah penduduk Perempuan Tahun 2025: 123 jiwa.';
     } else if (lower.includes('keluarga')) {
-      reply = '👪 Jumlah penduduk 2025: 83 Keluarga.';
-    } else if (lower.includes('website')) {
-      reply = '🌐 Website Resmi: <a href="https://kel-bukitsua.palangkaraya.go.id/" target="_blank">kel-bukitsua.palangkaraya.go.id</a>';
+      reply = '👪 Jumlah penduduk 2025: 83 Keluarga.'; 
     } else if (lower.includes('aduan') || lower.includes('keluhan')) {
       reply = '📝 Silakan isi aduan Anda. Tulis dalam format: Nama - Nomor HP - Isi Aduan';
     } else if (msg.includes('-') && msg.split('-').length >= 3) {
