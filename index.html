@@ -127,17 +127,17 @@
     } else if (lower.includes('website')) {
       reply = '🌐 Website Resmi: <a href="https://kel-bukitsua.palangkaraya.go.id/" target="_blank">kel-bukitsua.palangkaraya.go.id</a>';
     } else if (lower.includes('sku') || lower.includes('usaha')) {
-  reply = '📄 Syarat Surat Keterangan Usaha (SKU):<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Pas Foto 3x4 (2 lembar)<br>- Foto Usaha (1 lembar, isi 2 foto)<br>- Form SKU (TTD RT)';
-} else if (lower.includes('sktm') || lower.includes('tidak mampu')) {
-  reply = '📄 Syarat Surat Keterangan Tidak Mampu (SKTM):<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Form SKTM (TTD RT)';
-} else if (lower.includes('kelahiran')) {
-  reply = '📄 Syarat Surat Keterangan Kelahiran:<br>- KTP Ayah & Ibu (FC 1x)<br>- KK (FC 1x)<br>- Form Keterangan Kelahiran (TTD RT)';
-} else if (lower.includes('kematian')) {
-  reply = '📄 Syarat Surat Keterangan Kematian:<br>- KTP Almarhum (FC 1x)<br>- KK Almarhum (FC 1x)<br>- KTP Pelapor (FC 1x)<br>- Form Surat Kematian (TTD RT)';
-} else if (lower.includes('pindah')) {
-  reply = '📄 Syarat Surat Keterangan Pindah:<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Form Keterangan Pindah (TTD RT, FC x1)';
-} else if (lower.includes('domisili')) {
-  reply = '📄 Syarat Surat Keterangan Domisili:<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Form Keterangan Domisili (TTD RT, FC x1)';
+      reply = '📄 Syarat Surat Keterangan Usaha (SKU):<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Pas Foto 3x4 (2 lembar)<br>- Foto Usaha (1 lembar, isi 2 foto)<br>- Form SKU (TTD RT)';
+    } else if (lower.includes('sktm') || lower.includes('tidak mampu')) {
+      reply = '📄 Syarat Surat Keterangan Tidak Mampu (SKTM):<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Form SKTM (TTD RT)';
+    } else if (lower.includes('kelahiran')) {
+      reply = '📄 Syarat Surat Keterangan Kelahiran:<br>- KTP Ayah & Ibu (FC 1x)<br>- KK (FC 1x)<br>- Form Keterangan Kelahiran (TTD RT)';
+    } else if (lower.includes('kematian')) {
+      reply = '📄 Syarat Surat Keterangan Kematian:<br>- KTP Almarhum (FC 1x)<br>- KK Almarhum (FC 1x)<br>- KTP Pelapor (FC 1x)<br>- Form Surat Kematian (TTD RT)';
+    } else if (lower.includes('pindah')) {
+    reply = '📄 Syarat Surat Keterangan Pindah:<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Form Keterangan Pindah (TTD RT, FC x1)';
+    } else if (lower.includes('domisili')) {
+    reply = '📄 Syarat Surat Keterangan Domisili:<br>- KTP (FC 1x)<br>- KK (FC 1x)<br>- Form Keterangan Domisili (TTD RT, FC x1)';
     } else if (lower.includes('aduan') || lower.includes('keluhan')) {
       reply = '📝 Silakan isi aduan Anda. Tulis dalam format: Nama - Nomor HP - Isi Aduan';
     } else if (msg.includes('-') && msg.split('-').length >= 3) {
