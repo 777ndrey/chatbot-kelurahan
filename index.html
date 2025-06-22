@@ -79,7 +79,7 @@
 <body>
 
 <div class="chatbot">
-  <div class="chat-header">🤖 Chatbot Informasi Kelurahan Bukit Sua</div>
+  <div class="chat-header">🤖 Chat Informasi Kelurahan Bukit Sua</div>
   <div class="chat-body" id="chatBody">
     <div class="message bot">👋 Halo! Saya Asisten Kelurahan Bukit Sua Ketik pertanyaan seperti:<br>
     - Nama Lurah<br>- Jumlah RT<br>- Jumlah RW<br>Alamat Kelurahan<br>- Jam Pelayanan<br>- Nomor Kontak Whatsapp Lurah/Petugas <br>- Jumlah Penduduk<br>- <br>- dan Hal penting terkait Pelayanan Lainnya<br></div>
@@ -106,17 +106,17 @@
       reply = '👤 Nama Lurah Kelurahan Bukit Sua adalah Ibu Noviani, S.P.';
     } else if (lower.includes('jumlah rt') || lower.includes('jumlah rw')) {
       reply = '🏘️ Kelurahan Bukit Sua memiliki 2 RT dan 1 RW.';
-    } else if (lower.includes('alamat')) {
-      reply = '📍 Jl. Bukit Raya No. 45, Palangka Raya, Kalimantan Tengah.';
+    } else if (lower.includes('alamat') || lower.includes('jalan')) {
+      reply = '📍 Jl. Jalan Timpung RT.001 RW.001 Bukit Sua Kode Pos 73229, Palangka Raya, Kalimantan Tengah.';
     } else if (lower.includes('jam') || lower.includes('pelayanan')) {
       reply = '🕐 Pelayanan buka Senin–Jumat, pukul 08.00–15.00 WIB.';
     } else if (lower.includes('kontak')) {
       reply = '📞 Kontak: 0822-5496-3703 (Admin Kelurahan)';
-    } else if (lower.includes('jumlah penduduk laki-laki')) {
+    } else if (lower.includes('laki-laki')) {
       reply = '👪 Jumlah penduduk  2025: 173 jiwa.';
-    } else if (lower.includes('jumlah penduduk perempuan')) {
+    } else if (lower.includes('perempuan')) {
       reply = '👪 Jumlah penduduk  2025: 123 jiwa.';
-    } else if (lower.includes('jumlah keluarga')) {
+    } else if (lower.includes('keluarga')) {
       reply = '👪 Jumlah penduduk  2025: 83 Keluarga.';
     
     } else if (lower.includes('aduan') || lower.includes('keluhan')) {
