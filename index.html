@@ -79,10 +79,10 @@
 <body>
 
 <div class="chatbot">
-  <div class="chat-header">🤖 InfoBot Kel. Bukit Sua</div>
+  <div class="chat-header">🤖 Chatbot Informasi Kelurahan Bukit Sua</div>
   <div class="chat-body" id="chatBody">
-    <div class="message bot">👋 Halo! Saya InfoBot. Ketik pertanyaan seperti:<br>
-    - Nama Lurah<br>- Jumlah RT<br>- Alamat Kelurahan<br>- Jam Pelayanan<br>- Kontak<br>- Jumlah Penduduk<br>- Saya ingin menyampaikan aduan</div>
+    <div class="message bot">👋 Halo! Saya Asisten Kelurahan Bukit Sua Ketik pertanyaan seperti:<br>
+    - Nama Lurah<br>- Jumlah RT<br>- Jumlah RW<br>Alamat Kelurahan<br>- Jam Pelayanan<br>- Nomor Kontak Whatsapp Lurah/Petugas <br>- Jumlah Penduduk<br>- <br>- dan Hal penting terkait Pelayanan Lainnya<br></div>
   </div>
   <div class="chat-footer">
     <input type="text" id="userInput" placeholder="Tulis pertanyaan...">
@@ -103,17 +103,22 @@
     const lower = msg.toLowerCase();
 
     if (lower.includes('nama lurah')) {
-      reply = '👤 Nama Lurah Kelurahan Bukit Sua adalah Bapak Ahmad Sutrisno, S.Sos.';
+      reply = '👤 Nama Lurah Kelurahan Bukit Sua adalah Ibu Noviani, S.P.';
     } else if (lower.includes('jumlah rt') || lower.includes('jumlah rw')) {
-      reply = '🏘️ Kelurahan Bukit Sua memiliki 7 RT dan 2 RW.';
+      reply = '🏘️ Kelurahan Bukit Sua memiliki 2 RT dan 1 RW.';
     } else if (lower.includes('alamat')) {
       reply = '📍 Jl. Bukit Raya No. 45, Palangka Raya, Kalimantan Tengah.';
     } else if (lower.includes('jam') || lower.includes('pelayanan')) {
       reply = '🕐 Pelayanan buka Senin–Jumat, pukul 08.00–15.00 WIB.';
     } else if (lower.includes('kontak')) {
-      reply = '📞 Kontak: 0812-3456-7890 (Admin Kelurahan)';
-    } else if (lower.includes('jumlah penduduk')) {
-      reply = '👪 Jumlah penduduk per Juni 2025: 3.284 jiwa.';
+      reply = '📞 Kontak: 0822-5496-3703 (Admin Kelurahan)';
+    } else if (lower.includes('jumlah penduduk laki-laki')) {
+      reply = '👪 Jumlah penduduk  2025: 173 jiwa.';
+    } else if (lower.includes('jumlah penduduk perempuan')) {
+      reply = '👪 Jumlah penduduk  2025: 123 jiwa.';
+    } else if (lower.includes('jumlah keluarga')) {
+      reply = '👪 Jumlah penduduk  2025: 83 Keluarga.';
+    
     } else if (lower.includes('aduan') || lower.includes('keluhan')) {
       reply = '📝 Silakan isi aduan Anda. Tulis dalam format: Nama - Nomor HP - Isi Aduan';
     } else if (msg.includes('-') && msg.split('-').length >= 3) {
