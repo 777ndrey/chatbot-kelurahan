@@ -82,7 +82,7 @@
   <div class="chat-header">🤖 Chat Informasi Kelurahan Bukit Sua</div>
   <div class="chat-body" id="chatBody">
     <div class="message bot">👋 Halo! Saya Asisten Kelurahan Bukit Sua. Ketik pertanyaan seperti:<br>
-    - Nama Lurah<br>- Jumlah RT<br>- Jumlah RW<br>- Alamat Kelurahan<br>- Jam Pelayanan<br>- Nomor Kontak Whatsapp Lurah/Petugas<br>- Jumlah Penduduk<br>- dan Hal penting terkait Pelayanan Lainnya<br></div>
+    - Nama Lurah<br>- Jumlah RT<br>- Jumlah RW<br>- Alamat Kelurahan<br>- Jam Pelayanan<br>- Nomor Kontak Whatsapp Lurah/Petugas<br>- Jumlah Penduduk<br>- Syarat Pelayanan<br>- Alamat Website Kelurahan Bukit Sua<br></div>
   </div>
   <div class="chat-footer">
     <input type="text" id="userInput" placeholder="Tulis pertanyaan...">
@@ -123,7 +123,9 @@
     } else if (lower.includes('perempuan')) {
       reply = '👪 Jumlah penduduk Perempuan Tahun 2025: 123 jiwa.';
     } else if (lower.includes('keluarga')) {
-      reply = '👪 Jumlah penduduk 2025: 83 Keluarga.'; 
+      reply = '👪 Jumlah penduduk 2025: 83 Keluarga.';
+    } else if (lower.includes('website')) {
+      reply = 'https://kel-sabaru.palangkaraya.go.id/.';
     } else if (lower.includes('aduan') || lower.includes('keluhan')) {
       reply = '📝 Silakan isi aduan Anda. Tulis dalam format: Nama - Nomor HP - Isi Aduan';
     } else if (msg.includes('-') && msg.split('-').length >= 3) {
