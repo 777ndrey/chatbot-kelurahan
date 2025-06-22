@@ -114,9 +114,14 @@
       reply = '🕐 Pelayanan buka Senin–Jumat, pukul 08.00–15.00 WIB.';
     } else if (lower.includes('kontak')) {
       reply = '📞 Kontak: 0822-5496-3703 (Admin Kelurahan)';
-    } else if (lower.includes('laki-laki')(lower.includes('laki laki')(lower.includes('laki')) {
-      reply = '👪 Jumlah penduduk  Laki-laki Tahun 2025: 173 jiwa.';
-    } else if (lower.includes('perempuan')) {
+    } else if (
+      lower.includes('laki-laki') || 
+      lower.includes('laki laki') || 
+      lower.includes('laki')
+    ) {
+      reply = '👪 Jumlah penduduk Laki-laki Tahun 2025: 173 jiwa.';
+    }
+ } else if (lower.includes('perempuan')) {
       reply = '👪 Jumlah penduduk  Perempuan Tahun 2025: 123 jiwa.';
     } else if (lower.includes('keluarga')) {
       reply = '👪 Jumlah penduduk  2025: 83 Keluarga.'; 
