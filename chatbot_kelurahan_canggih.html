@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chatbot Kelurahan Bukit Sua</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+    .chatbot {
+      max-width: 480px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .chat-header {
+      background: #2a7f62;
+      color: white;
+      padding: 16px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .chat-body {
+      height: 400px;
+      overflow-y: auto;
+      padding: 16px;
+      background: #fafafa;
+    }
+    .message {
+      margin: 10px 0;
+    }
+    .bot {
+      color: #000;
+    }
+    .user {
+      text-align: right;
+      color: #2a7f62;
+    }
+    .chat-footer {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .chat-footer input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      font-size: 16px;
+    }
+    .chat-footer button {
+      background: #2a7f62;
+      color: white;
+      border: none;
+      padding: 0 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .wa-link {
+      text-align: center;
+      padding: 12px;
+    }
+    .wa-link a {
+      background: #25D366;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="chatbot">
+  <div class="chat-header">🤖 InfoBot Kel. Bukit Sua</div>
+  <div class="chat-body" id="chatBody">
+    <div class="message bot">👋 Halo! Saya InfoBot. Ketik pertanyaan seperti:<br>
+    - Nama Lurah<br>- Jumlah RT<br>- Alamat Kelurahan<br>- Jam Pelayanan<br>- Kontak<br>- Jumlah Penduduk<br>- Saya ingin menyampaikan aduan</div>
+  </div>
+  <div class="chat-footer">
+    <input type="text" id="userInput" placeholder="Tulis pertanyaan...">
+    <button onclick="chat()">Kirim</button>
+  </div>
+  <div class="wa-link">
+    <a href="https://wa.me/6282254963703?text=Halo%20Kelurahan%20Bukit%20Sua" target="_blank">
+      💬 Hubungi via WhatsApp
+    </a>
+  </div>
+</div>
+
+<script>
+  function chat() {
+    const input = document.getElementById('userInput');
+    const msg = input.value.trim();
+    if (msg === '') return;
+
+    const body = document.getElementById('chatBody');
+    body.innerHTML += `<div class='message user'>${msg}</div>`;
+
+    let reply = '';
+    const lower = msg.toLowerCase();
+
+    if (lower.includes('nama lurah')) {
+      reply = '👤 Nama Lurah Kelurahan Bukit Sua adalah Bapak Ahmad Sutrisno, S.Sos.';
+    } else if (lower.includes('jumlah rt') || lower.includes('jumlah rw')) {
+      reply = '🏘️ Kelurahan Bukit Sua memiliki 7 RT dan 2 RW.';
+    } else if (lower.includes('alamat')) {
+      reply = '📍 Jl. Bukit Raya No. 45, Palangka Raya, Kalimantan Tengah.';
+    } else if (lower.includes('jam') || lower.includes('pelayanan')) {
+      reply = '🕐 Pelayanan buka Senin–Jumat, pukul 08.00–15.00 WIB.';
+    } else if (lower.includes('kontak')) {
+      reply = '📞 Kontak: 0812-3456-7890 (Admin Kelurahan)';
+    } else if (lower.includes('jumlah penduduk')) {
+      reply = '👪 Jumlah penduduk per Juni 2025: 3.284 jiwa.';
+    } else if (lower.includes('aduan') || lower.includes('keluhan')) {
+      reply = '📝 Silakan isi aduan Anda. Tulis dalam format: Nama - Nomor HP - Isi Aduan';
+    } else if (msg.includes('-') && msg.split('-').length >= 3) {
+      const [nama, hp, ...isi] = msg.split('-').map(s => s.trim());
+      const data = { nama: nama, hp: hp, pesan: isi.join(' - ') };
+      fetch("https://script.google.com/macros/s/AKfycbzlkJ93h21ByYJbE8GOO-KlQHRp6xOo9UV4dGNvAT0xGikGHkunXDrcGRwyrTFVRBScaQ/exec", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+      }).then(res => {
+        if (res.ok) {
+          reply = '✅ Terima kasih, aduan Anda telah dikirim ke Kelurahan.';
+        } else {
+          reply = '⚠️ Maaf, terjadi kesalahan saat mengirim aduan.';
+        }
+        body.innerHTML += `<div class='message bot'>${reply}</div>`;
+        body.scrollTop = body.scrollHeight;
+      });
+      input.value = '';
+      return;
+    } else {
+      reply = '❓ Maaf, saya belum memahami. Coba ketik: Nama Lurah, Alamat, Jam Pelayanan, atau ketik "aduan".';
+    }
+
+    setTimeout(() => {
+      body.innerHTML += `<div class='message bot'>${reply}</div>`;
+      body.scrollTop = body.scrollHeight;
+    }, 400);
+    input.value = '';
+  }
+</script>
+
+</body>
+</html>
